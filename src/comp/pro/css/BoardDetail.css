@@ -1,0 +1,124 @@
+.post_container {
+    
+    position: relative;
+    width: 90vw;
+    height: 60vh;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .post_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .post_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  .post_meta {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .post_content {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .post_actions {
+    
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .like_button{
+    padding: 8px 12px;
+    background: #f1f1f1;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .like_button:hover{
+    background: #e0e0e0;
+  }
+  
+
+  .post_menu {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit_button,
+  .delete_button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .edit_button {
+    background: #007BFF;
+    color: #fff;
+  }
+  
+  .edit_button:hover {
+    background: #0056b3;
+  }
+  
+  .delete_button {
+    background: #FF6B6B;
+    color: #fff;
+  }
+  
+  .delete_button:hover {
+    background: #C94B4B;
+  }
+  
+  .back_button_container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .back_button {
+    padding: 8px 12px;
+    background: #f1f1f1;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .back_button:hover {
+    background: #e0e0e0;
+  }

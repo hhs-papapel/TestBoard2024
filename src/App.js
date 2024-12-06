@@ -5,6 +5,7 @@ import ProTop from './comp/pro/Top'
 
 import ProLogin from './comp/pro/Login'
 import ProBoardList from './comp/pro/BoardList'
+import ProBoardDetail from './comp/pro/BoardDetail'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -16,6 +17,8 @@ function App() {
         <Routes>
           <Route path={"/Login"} element={<ProLogin />} />
           <Route path={"/"} element={<ProBoardList />} />
+
+          <Route path={"/BoardDetail"} element={<ProBoardDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
