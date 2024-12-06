@@ -1,0 +1,52 @@
+/* 헤더 스타일 */
+.top {
+    position: fixed; /* 화면 최상단에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #B0BF3B;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .top-container {
+    display: flex;
+    justify-content: space-between; /* 왼쪽과 오른쪽으로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .top-left .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .top-right {
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 15px; /* 요소 간 간격 */
+  }
+  
+  .user-info {
+    font-size: 16px;
+  }
+  
+  .login-button {
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #D5D96A;
+  }
+  
