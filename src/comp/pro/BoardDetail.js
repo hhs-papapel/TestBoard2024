@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './css/BoardDetail.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function BoardDetail() {
+
+    const navigate = useNavigate();
 
     const [likeCount, setLikeCount] = useState('👍0');
 
@@ -9,7 +12,11 @@ export default function Login() {
         
     <div class="post_container">
         <div className="back_button_container">
-            <input type="button" className="back_button" value="이전으로"/>
+            <input type="button" className="back_button" value="이전으로" onClick={
+                ()=>{
+                    navigate('/');
+                }
+            }/>
         </div>
         <div class="post_header">
             <h2 class="post_title">Lorem ipsum dolor sit amet</h2>

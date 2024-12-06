@@ -12,9 +12,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <ProTop/>
       <BrowserRouter>
+        <ProTop/>
         <Routes>
+          <Route path={"/Top"} element={<ProTop />} />
+
           <Route path={"/Login"} element={<ProLogin />} />
           <Route path={"/"} element={<ProBoardList />} />
 
