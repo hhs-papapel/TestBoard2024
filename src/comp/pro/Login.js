@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './css/Login.css';
 import { LoginCheck } from './api/member'
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,10 @@ export default function Login() {
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
+
+    useEffect(() => {
+        localStorage.removeItem('boardIdx');
+    }, [])
 
     const loginAction = ()=>{
         if(id == '' || id == null || pw == '' || pw == null){

@@ -1,10 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './css/BoardList.css';
+import { BoardListLoad } from './api/board'
+import { useNavigate } from 'react-router-dom';
 
 export default function BoardList() {
 
+    const navigate = useNavigate();
 
     const [search, setSearch] = useState('');
+    const [search2, setSearch2] = useState('');
+    const [boardItems, setBoardItems] = useState([]);
+
+    function startBoardList(seachBoard) {
+        BoardListLoad(seachBoard)
+        .then(res => {
+            if(res.data.code == 200) {
+                setBoardItems(res.data.data);
+            }
+        })
+    }
+
+    useEffect(() => {
+        localStorage.removeItem('boardIdx');
+        startBoardList();
+    }, [])
+
+    useEffect(() => {
+        let param = new Object();
+        param.keyword = search;
+        param.created = search2;
+
+        startBoardList(param);
+    }, [search,search2])
+
 
 
     return (
@@ -13,10 +41,12 @@ export default function BoardList() {
         <h2>게시판</h2>
 
         <div className="search_container">
-            <input type="text" placeholder="검색어를 입력하세요" className="search_input" value={search} onChange={
+            <input type="text" placeholder="제목을 입력하세요" className="search_input" value={search} onChange={
                 e=>setSearch(e.target.value)
             }/>
-            <input type="button" value="검색" className="search_button" />
+            <input type="text" placeholder="작성자를 입력하세요" className="search_input" value={search2} onChange={
+                e=>setSearch2(e.target.value)
+            }/>
         </div>
 
         <table class="board_table">
@@ -30,20 +60,19 @@ export default function BoardList() {
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <td>1</td>
-            <td>제목</td>
-            <td>이름</td>
-            <td>2024-12-06</td>
-            <td>👍0</td>
-            </tr>
-            <tr>
-            <td>2</td>
-            <td>제목</td>
-            <td>이름</td>
-            <td>2024-12-06</td>
-            <td>👍0</td>
-            </tr>
+            {boardItems.map((board) => (
+                
+                <tr onClick= {()=>{
+                    localStorage.setItem('boardIdx', board.boardIdx);
+                    navigate('/BoardDetail');
+                }}>
+                    <td>{board.boardIdx}</td>
+                    <td>{board.title}</td>
+                    <td>{board.memberId}</td>
+                    <td>{new Date(board.createdAt).toLocaleString()}</td>
+                    <td>👍{board.boardGood}</td>
+                </tr>
+            ))}
         </tbody>
         </table>
         <input type='button' value="글쓰기" class="write_button" />
