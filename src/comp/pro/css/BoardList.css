@@ -1,0 +1,100 @@
+
+  .board_container {
+    position: relative;
+    width: 90vh;
+    min-height: 700px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+  }
+  
+
+  .search_container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search_input {
+    width: 200px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search_button {
+    padding: 8px 16px;
+    background: #B0BF3B;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.search_button:hover {
+    background: #D5D96A;
+}
+
+
+
+  .board_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .board_table th,
+  .board_table td {
+    padding: 10px;
+    border: 1px solid #fff;
+    text-align: center;
+  }
+  
+  .board_table th {
+    background-color: #B0BF3B;
+    font-weight: bold;
+  }
+  
+  .board_table tbody tr:nth-child(even) {
+    background-color: #ffffeb;
+  }
+  
+  .board_table tbody tr:hover {
+    background-color: #EDF1CB;
+  }
+  
+  .board_table td a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .write_button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    padding: 10px 20px;
+    background: #B0BF3B;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .write_button:hover {
+    background: #D5D96A;
+  }
