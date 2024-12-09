@@ -87,7 +87,11 @@ export default function BoardDetail() {
             </div>
             {userId === boardItem.memberId && (
                 <div class="post_menu">
-                    <input type="button" class="edit_button" value="수정"/>
+                    <input type="button" class="edit_button" value="수정" onClick={
+                        ()=>{
+                            navigate('/BoardUpdate');
+                        }
+                    }/>
                     <input type="button" class="delete_button" value="삭제" onClick={
                         ()=>{
                             const isConfirmed = window.confirm("정말 삭제하시겠습니까?");

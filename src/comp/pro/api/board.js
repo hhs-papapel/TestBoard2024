@@ -50,3 +50,13 @@ export const BoardUserWrite = (obj) => {
 export const BoardUserDelete = (obj) => {
     return api.post('/board/remove', JSON.stringify(obj))
 }
+
+/**
+ * 게시판수정하기
+ * @param {}
+ * @returns 
+ */
+export const BoardUserUpdate = (obj) => {
+    return api.post('/board/modify', JSON.stringify(obj))
+}
+
