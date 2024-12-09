@@ -21,7 +21,6 @@ export default function BoardList() {
     }
 
     useEffect(() => {
-        localStorage.removeItem('boardIdx');
         startBoardList();
     }, [])
 

@@ -1,12 +1,52 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './css/BoardDetail.css';
 import { useNavigate } from 'react-router-dom';
+import { BoardDetailLoad,BoardDetailgood } from './api/board'
 
 export default function BoardDetail() {
 
     const navigate = useNavigate();
 
-    const [likeCount, setLikeCount] = useState('👍0');
+    const [boardId, setBoardId] = useState('');
+    const [boardItem, setBoardItem] = useState('');
+    const [likeCount, setLikeCount] = useState('0');
+    const [likeMessage,setLickMessage] = useState('👍'+ likeCount);
+
+    function startBoardDetail() {
+        
+        let param = new Object();
+        param.boardId = boardId;
+
+        BoardDetailLoad(param)
+        .then(res => {
+             console.log(res);
+             if(res.data.code == 200) {
+                 console.log(res.data.data);
+                 setBoardItem(res.data.data);
+                 setLikeCount(res.data.data.boardGood);
+             }
+         })
+    }
+
+    useEffect(() => {
+        const storedBoardId = localStorage.getItem('boardIdx') || '';
+        setBoardId(storedBoardId);
+    }, []);
+    
+    useEffect(() => {
+        if (boardId) {
+            startBoardDetail();
+        }
+    }, [boardId]);
+
+    useEffect(() => {
+        setLickMessage('👍' + likeCount);
+    }, [likeCount]);
+
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleString('ko-KR', options);
+    }
 
     return (
         
@@ -19,23 +59,29 @@ export default function BoardDetail() {
             }/>
         </div>
         <div class="post_header">
-            <h2 class="post_title">Lorem ipsum dolor sit amet</h2>
+            <h2 class="post_title">{boardItem.title}</h2>
         </div>
         <div class="post_meta">
-            <span>작성자: gptrumo</span>
-            <span>작성일: 2024-12-06</span>
-            <span>수정일: 2024-12-06</span>
+            <span>작성자: {boardItem.memberId}</span>
+            <span>작성일: {boardItem.createdAt ? formatDate(boardItem.createdAt) : 'N/A'}</span>
         </div>
         <div class="post_content">
             <p>
-            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            A small river named Duden flows by their place and supplies it with the necessary regelialia.
-            It is a paradisematic country, in which roasted parts of sentences fly into your mouth...
+            {boardItem.content}
             </p>
         </div>
         <div class="post_actions">
             <div class="post_likes_comments">
-                <input type='button' class="like_button" value={likeCount}/>
+                <input type='button' class="like_button" value={likeMessage} onClick={
+                    ()=>{
+                        let obj ={
+                            'boardId' : boardId
+                        };
+                        console.log(obj);
+                        BoardDetailgood(obj);
+                        setLikeCount(likeCount + 1);
+                    }
+                }/>
             </div>
             <div class="post_menu">
                 <input type="button" class="edit_button" value="수정"/>

@@ -11,3 +11,24 @@ export const BoardListLoad = (param) => {
         params: param
     });
 }
+
+/**
+ * 게시판상세보기
+ * @param {} param 
+ * @returns 
+ */
+export const BoardDetailLoad = (param) => {
+
+    return api.get('/board/find', {
+        params: param
+    });
+}
+
+/**
+ * 게시판추천하기
+ * @param {}
+ * @returns 
+ */
+export const BoardDetailgood = (obj) => {
+    return api.post('/board/good', JSON.stringify(obj))
+}
