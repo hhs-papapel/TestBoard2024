@@ -74,7 +74,16 @@ export default function BoardList() {
             ))}
         </tbody>
         </table>
-        <input type='button' value="글쓰기" class="write_button" />
+        <input type='button' value="글쓰기" class="write_button" onClick={
+            ()=>{
+                if(localStorage.getItem('userId')){
+                    navigate('/BoardWrite');
+                }else{
+                    alert('로그인 후 사용이 가능합니다.');
+                    navigate('/Login');
+                }
+            }
+        }/>
     </div>
     )
 }

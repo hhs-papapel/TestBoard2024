@@ -6,6 +6,7 @@ import ProTop from './comp/pro/Top'
 import ProLogin from './comp/pro/Login'
 import ProBoardList from './comp/pro/BoardList'
 import ProBoardDetail from './comp/pro/BoardDetail'
+import ProBoardWrite from './comp/pro/BoardWrite'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -21,6 +22,8 @@ function App() {
           <Route path={"/"} element={<ProBoardList />} />
 
           <Route path={"/BoardDetail"} element={<ProBoardDetail />} />
+          
+          <Route path={"/BoardWrite"} element={<ProBoardWrite />} />
         </Routes>
       </BrowserRouter>
     </div>

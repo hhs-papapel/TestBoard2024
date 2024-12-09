@@ -86,21 +86,21 @@
   }
   
   .edit_button {
-    background: #007BFF;
+    background: #B0BF3B;
     color: #fff;
   }
   
   .edit_button:hover {
-    background: #0056b3;
+    background: #BDD4F2;
   }
   
   .delete_button {
-    background: #FF6B6B;
+    background: #B0BF3B;
     color: #fff;
   }
   
   .delete_button:hover {
-    background: #C94B4B;
+    background: #f2c0bd;
   }
   
   .back_button_container {

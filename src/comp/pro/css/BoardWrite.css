@@ -1,0 +1,94 @@
+.write_container {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.write_title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.write_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.write_input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.write_input:focus {
+    border: 3px solid #B0BF3B;
+}
+
+.write_textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    min-height: 150px;
+    resize: vertical;
+    transition: border 0.3s ease;
+}
+
+.write_textarea:focus {
+    border: 3px solid #B0BF3B;
+}
+
+.write_actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit_button {
+    padding: 10px 20px;
+    background: #B0BF3B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit_button:hover {
+    background: #BDD4F2;
+}
+
+.back_button_container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.back_button {
+    padding: 8px 12px;
+    background: #f1f1f1;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.back_button:hover {
+    background: #e0e0e0;
+}
