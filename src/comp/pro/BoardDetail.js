@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import './css/BoardDetail.css';
 import { useNavigate } from 'react-router-dom';
-import { BoardDetailLoad,BoardDetailgood } from './api/board'
+import { BoardDetailLoad,BoardDetailgood,BoardUserDelete } from './api/board'
 
 export default function BoardDetail() {
 
     const navigate = useNavigate();
 
+    const [userId, setUserId] = useState('');
     const [boardId, setBoardId] = useState('');
     const [boardItem, setBoardItem] = useState('');
     const [likeCount, setLikeCount] = useState('0');
@@ -29,6 +30,8 @@ export default function BoardDetail() {
     }
 
     useEffect(() => {
+        const uid = localStorage.getItem('userId') || '';
+        setUserId(uid);
         const storedBoardId = localStorage.getItem('boardIdx') || '';
         setBoardId(storedBoardId);
     }, []);
@@ -77,16 +80,30 @@ export default function BoardDetail() {
                         let obj ={
                             'boardId' : boardId
                         };
-                        console.log(obj);
                         BoardDetailgood(obj);
                         setLikeCount(likeCount + 1);
                     }
                 }/>
             </div>
-            <div class="post_menu">
-                <input type="button" class="edit_button" value="수정"/>
-                <input type="button" class="delete_button" value="삭제"/>
-            </div>
+            {userId === boardItem.memberId && (
+                <div class="post_menu">
+                    <input type="button" class="edit_button" value="수정"/>
+                    <input type="button" class="delete_button" value="삭제" onClick={
+                        ()=>{
+                            const isConfirmed = window.confirm("정말 삭제하시겠습니까?");
+                            if (isConfirmed) {
+                                alert("삭제되었습니다.");
+                                let obj ={
+                                    'boardId' : boardId
+                                };
+                                BoardUserDelete(obj);
+                                navigate('/');
+                                window.location.reload();
+                              } 
+                        }
+                    }/>
+                </div>
+            )}
         </div>
     </div>
 

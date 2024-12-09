@@ -46,7 +46,6 @@ export default function BoardWrite() {
                                 'content' :content,
                                 'memberId' : userId
                             };
-                            console.log(obj);
                             BoardUserWrite(obj);
                             navigate('/');
                             window.location.reload();

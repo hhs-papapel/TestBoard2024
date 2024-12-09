@@ -41,3 +41,12 @@ export const BoardDetailgood = (obj) => {
 export const BoardUserWrite = (obj) => {
     return api.post('/board/regist', JSON.stringify(obj))
 }
+
+/**
+ * 게시판삭제하기
+ * @param {}
+ * @returns 
+ */
+export const BoardUserDelete = (obj) => {
+    return api.post('/board/remove', JSON.stringify(obj))
+}
