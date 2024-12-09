@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './css/BoardWrite.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function BoardWrite() {
+export default function Login() {
 
     const navigate = useNavigate();
 

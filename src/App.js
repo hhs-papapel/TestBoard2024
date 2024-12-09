@@ -7,6 +7,7 @@ import ProLogin from './comp/pro/Login'
 import ProBoardList from './comp/pro/BoardList'
 import ProBoardDetail from './comp/pro/BoardDetail'
 import ProBoardWrite from './comp/pro/BoardWrite'
+import ProBoardUpdate from './comp/pro/BoardUpdate'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -24,6 +25,8 @@ function App() {
           <Route path={"/BoardDetail"} element={<ProBoardDetail />} />
           
           <Route path={"/BoardWrite"} element={<ProBoardWrite />} />
+          
+          <Route path={"/BoardUpdate"} element={<ProBoardUpdate />} />
         </Routes>
       </BrowserRouter>
     </div>
