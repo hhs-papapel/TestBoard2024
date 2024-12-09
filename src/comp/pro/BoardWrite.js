@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './css/BoardWrite.css';
 import { useNavigate } from 'react-router-dom';
+import { BoardUserWrite } from './api/board'
 
 export default function BoardWrite() {
 
@@ -8,16 +9,12 @@ export default function BoardWrite() {
 
     const [title, setTitle] = useState('');
     const [userId, setUserId] = useState('');
-    //const [boardId, setBoardId] = useState('');
     const [content, setContent] = useState('');
 
 
     useEffect(() => {
-        //const bid = localStorage.getItem('boardIdx') || '';
         const uid = localStorage.getItem('userId') || '';
-
         setUserId(uid);
-
     }, [])
 
     return (
@@ -42,10 +39,19 @@ export default function BoardWrite() {
                 }
                 ></textarea>
                 <div className="write_actions">
-                    <input
-                        type="button"
-                        value="등록"
-                        className="submit_button"
+                    <input type="button" value="등록" className="submit_button" onClick={
+                        ()=>{
+                            let obj ={
+                                'title' : title,
+                                'content' :content,
+                                'memberId' : userId
+                            };
+                            console.log(obj);
+                            BoardUserWrite(obj);
+                            navigate('/');
+                            window.location.reload();
+                        }
+                    }
                     />
                 </div>
             </div>

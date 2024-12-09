@@ -32,3 +32,12 @@ export const BoardDetailLoad = (param) => {
 export const BoardDetailgood = (obj) => {
     return api.post('/board/good', JSON.stringify(obj))
 }
+
+/**
+ * 게시판등록하기
+ * @param {}
+ * @returns 
+ */
+export const BoardUserWrite = (obj) => {
+    return api.post('/board/regist', JSON.stringify(obj))
+}
